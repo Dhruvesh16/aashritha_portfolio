@@ -103,6 +103,8 @@ The application follows a client-server architecture with the following key comp
 
 Changelog:
 - June 27, 2025. Initial setup
+- June 27, 2025. Added PostgreSQL database integration with comprehensive schema for portfolio management
+- June 27, 2025. Implemented contact form with database persistence and API endpoints
 
 ## User Preferences
 

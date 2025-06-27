@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -32,7 +33,10 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      // Create mailto link with form data
+      // Save to database
+      await apiRequest("POST", "/api/contacts", formData);
+
+      // Also create mailto link for immediate contact
       const subject = encodeURIComponent(formData.subject);
       const body = encodeURIComponent(
         `Hello Aashritha,\n\n${formData.message}\n\nBest regards,\n${formData.firstName} ${formData.lastName}\n${formData.email}`
@@ -42,8 +46,8 @@ export default function ContactSection() {
       window.open(mailtoLink, '_blank');
       
       toast({
-        title: "Email client opened",
-        description: "Your default email client should open with the message pre-filled.",
+        title: "Message sent successfully",
+        description: "Your message has been saved and your email client opened. Aashritha will get back to you soon!",
       });
 
       // Reset form
@@ -55,9 +59,10 @@ export default function ContactSection() {
         message: ''
       });
     } catch (error) {
+      console.error("Error submitting contact form:", error);
       toast({
         title: "Error",
-        description: "There was an issue opening your email client. Please try contacting directly.",
+        description: "There was an issue submitting your message. Please try contacting directly via email.",
         variant: "destructive",
       });
     } finally {
