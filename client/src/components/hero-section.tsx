@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MapPin, Mail, Phone, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import profileImagePath from "@assets/sisterportfolio_1750999747763.jpeg";
 
 interface CounterProps {
   end: number;
@@ -214,15 +215,13 @@ LEADERSHIP & COMMUNICATION
           </div>
 
           <div className={`flex justify-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <Card className="w-80 h-80 bg-gradient-to-br from-primary/20 to-secondary/30 border-none shadow-lg">
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center text-slate-600">
-                  <div className="w-24 h-24 bg-primary/40 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-4xl font-bold text-white">AM</span>
-                  </div>
-                  <p className="text-sm font-medium">Professional Headshot</p>
-                  <p className="text-xs text-slate-500 mt-1">Upload your photo here</p>
-                </div>
+            <Card className="w-80 h-80 bg-gradient-to-br from-primary/20 to-secondary/30 border-none shadow-lg overflow-hidden">
+              <div className="w-full h-full flex items-center justify-center p-4">
+                <img 
+                  src={profileImagePath} 
+                  alt="Aashritha Mogalluru - Professional Profile"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             </Card>
           </div>
