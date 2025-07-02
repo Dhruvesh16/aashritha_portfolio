@@ -148,7 +148,7 @@ LEADERSHIP & COMMUNICATION
               </h1>
               <p className="text-xl text-slate-600">Industrial & Systems Engineering Graduate</p>
               <p className="text-lg text-slate-500">
-                Quality-focused engineer with expertise in continuous improvement, supply chain analytics and quality assurance
+                continuous improvement, supply chain analytics and quality assurance
               </p>
             </div>
             
