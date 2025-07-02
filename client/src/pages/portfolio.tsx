@@ -5,6 +5,7 @@ import EducationSection from "@/components/education-section";
 import ExperienceSection from "@/components/experience-section";
 import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
+import LeadershipSection from "@/components/leadership-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
@@ -27,6 +28,7 @@ export default function Portfolio() {
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
+        <LeadershipSection />
         <ContactSection />
       </main>
       <Footer />

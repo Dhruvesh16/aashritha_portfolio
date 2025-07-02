@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
+
+type ContactInfoItem = {
+  icon: React.ElementType;
+  label: string;
+  value: string;
+  link?: string;
+};
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -28,15 +34,11 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Save to database
-      await apiRequest("POST", "/api/contacts", formData);
-
-      // Also create mailto link for immediate contact
       const subject = encodeURIComponent(formData.subject);
       const body = encodeURIComponent(
         `Hello Aashritha,\n\n${formData.message}\n\nBest regards,\n${formData.firstName} ${formData.lastName}\n${formData.email}`
@@ -46,8 +48,8 @@ export default function ContactSection() {
       window.open(mailtoLink, '_blank');
       
       toast({
-        title: "Message sent successfully",
-        description: "Your message has been saved and your email client opened. Aashritha will get back to you soon!",
+        title: "Opening email client",
+        description: "Your default email client will open with your message. Send the email to contact Aashritha.",
       });
 
       // Reset form
@@ -59,10 +61,10 @@ export default function ContactSection() {
         message: ''
       });
     } catch (error) {
-      console.error("Error submitting contact form:", error);
+      console.error("Error opening email client:", error);
       toast({
         title: "Error",
-        description: "There was an issue submitting your message. Please try contacting directly via email.",
+        description: "There was an issue opening your email client. Please try contacting directly via email.",
         variant: "destructive",
       });
     } finally {
@@ -70,18 +72,12 @@ export default function ContactSection() {
     }
   };
 
-  const contactInfo = [
+  const contactInfo: ContactInfoItem[] = [
     {
       icon: Mail,
       label: "Email",
       value: "mogalluruven@wisc.edu",
       link: "mailto:mogalluruven@wisc.edu"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+1 (608)-213-8368",
-      link: "tel:+16082138368"
     },
     {
       icon: MapPin,

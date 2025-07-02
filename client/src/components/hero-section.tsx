@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MapPin, Mail, Phone, Download, ExternalLink } from "lucide-react";
+import { MapPin, Mail, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import profileImagePath from "@assets/sisterportfolio_1750999747763.jpeg";
@@ -51,7 +51,7 @@ export default function HeroSection() {
     // Create a resume content based on the provided data
     const resumeContent = `
 AASHRITHA MOGALLURU
-Madison, WI | mogalluruven@wisc.edu | +1 (608)-213-8368 | https://www.linkedin.com/in/aashritha9/
+Madison, WI | mogalluruven@wisc.edu | https://www.linkedin.com/in/aashritha9/
 
 EDUCATION
 University of Wisconsin – Madison: Master's in Industrial and Systems Engineering
@@ -160,10 +160,6 @@ LEADERSHIP & COMMUNICATION
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
                 <span>mogalluruven@wisc.edu</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>+1 (608)-213-8368</span>
               </div>
             </div>
 
