@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: command === 'build' ? "/aashritha_portfolio/" : "/",
+  base: "/", // Use root path for custom domain
   root: path.resolve(import.meta.dirname, "client"),
   server: {
     host: true, // Expose to all network interfaces

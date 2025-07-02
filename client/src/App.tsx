@@ -7,14 +7,11 @@ import Portfolio from "@/pages/portfolio";
 import NotFound from "@/pages/not-found";
 
 function App() {
-  // Get base path from Vite's environment, remove trailing slash
-  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router base={basePath}>
+        <Router>
           <Switch>
             <Route path="/" component={Portfolio} />
             <Route component={NotFound} />
