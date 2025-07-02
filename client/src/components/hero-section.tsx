@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MapPin, Mail, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import profileImagePath from "@/assets/sisterportfolio_1750999747763.jpeg";
+import profileImagePath from "@assets/sisterportfolio_1750999747763.jpeg";
 
 interface CounterProps {
   end: number;
@@ -148,7 +148,7 @@ LEADERSHIP & COMMUNICATION
               </h1>
               <p className="text-xl text-slate-600">Industrial & Systems Engineering Graduate</p>
               <p className="text-lg text-slate-500">
-                Quality-focused engineer with expertise in continuous improvement, data analysis, and manufacturing optimization
+                Quality-focused engineer with expertise in continuous improvement, supply chain analytics and quality assurance
               </p>
             </div>
             
