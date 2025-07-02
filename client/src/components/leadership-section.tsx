@@ -16,7 +16,7 @@ export default function LeadershipSection() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Team Overview Card */}
           <Card className="overflow-hidden">
-            <div className="relative h-64">
+            <div className="relative h-64 md:h-80 lg:h-96">
               <img
                 src={teamAeromitImage}
                 alt="AeroMIT Team Organization"
