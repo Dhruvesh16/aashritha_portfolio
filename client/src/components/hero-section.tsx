@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MapPin, Mail, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import profileImagePath from "@assets/sisterportfolio_1750999747763.jpeg";
+import profileImagePath from "@/assets/sisterportfolio_1750999747763.jpeg";
 
 interface CounterProps {
   end: number;
