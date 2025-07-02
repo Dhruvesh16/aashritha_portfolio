@@ -1,10 +1,17 @@
 import { createRoot } from "react-dom/client";
-import { Router } from "wouter";
 import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <Router base="/aashritha_portfolio">
-    <App />
-  </Router>
-);
+console.log("main.tsx is executing");
+console.log("Looking for root element:", document.getElementById("root"));
+
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  console.error("Root element not found!");
+} else {
+  console.log("Root element found, creating React root");
+  const root = createRoot(rootElement);
+  console.log("React root created, rendering App");
+  root.render(<App />);
+  console.log("App rendered");
+}
