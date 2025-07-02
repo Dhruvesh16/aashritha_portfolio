@@ -152,7 +152,6 @@ export default function ExperienceSection() {
                                 {' '}{achievement.highlight}
                               </span>
                             )}
-                            {achievement.text2 && achievement.text2}
                           </span>
                         </li>
                       ))}
