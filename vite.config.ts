@@ -2,10 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: "/aashritha_portfolio/",
+  base: command === 'build' ? "/aashritha_portfolio/" : "/",
   root: path.resolve(import.meta.dirname, "client"),
+  server: {
+    host: true, // Expose to all network interfaces
+    port: 5173, // Default Vite port
+  },
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"), // ✅ Just "dist"
     emptyOutDir: true,
@@ -17,4 +21,4 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-});
+}));
